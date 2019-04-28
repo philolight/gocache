@@ -29,12 +29,12 @@ func init() {
 }
 
 func TestBuckets(t *testing.T) {
-	fmt.Println("SingleMapCache")
-	ExampleSingleMapCache()
-	fmt.Println("BucketSingleMapCache")
-	ExampleBucketSingleMapCache()
-	fmt.Println("BucketDoubleMapCache")
-	ExampleBucketDoubleMapCache()
+	//fmt.Println("SingleMapCache")
+	//ExampleSingleMapCache()
+	//fmt.Println("BucketSingleMapCache")
+	//ExampleBucketSingleMapCache()
+	//fmt.Println("BucketDoubleMapCache")
+	//ExampleBucketDoubleMapCache()
 }
 
 func ExampleBucketDoubleMapCache() {
