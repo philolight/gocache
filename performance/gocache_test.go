@@ -6,9 +6,7 @@ import (
 	"sync"
 	"time"
 	"testing"
-	"encoding/base64"
-
-	"oss.navercorp.com/JTF-P6/cic-server.git/.gopath/pkg/dep/sources/https---github.com-google-uuid"
+	"math/rand"
 )
 
 const (
@@ -24,7 +22,7 @@ var overLimit = make([]*http.Request, limit*10, limit*10)
 func init() {
 	for i := 0; i < len(overLimit); i++ {
 		overLimit[i], _ = http.NewRequest(http.MethodGet, "test", nil)
-		overLimit[i].Header.Add("Authorization", "Bearer "+RandomUUID())
+		overLimit[i].Header.Add("Authorization", "Bearer "+RandomID())
 	}
 }
 
@@ -216,7 +214,6 @@ func request(cache Cacher, req *http.Request, resp *http.Response, times int, wg
 	res.hit += hit
 }
 
-func RandomUUID() string {
-	token, _ := uuid.NewRandom()
-	return base64.RawURLEncoding.EncodeToString([]byte(token.String()))
+func RandomID() string {
+	return fmt.Sprintf("%d", rand.Int63())
 }
